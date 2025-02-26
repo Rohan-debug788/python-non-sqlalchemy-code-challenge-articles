@@ -33,8 +33,9 @@ class Magazine:
 
     @name.setter
     def name(self, new_name):
-        if 2 <= len(new_name) <= 16:
-            self._name = new_name
+       if isinstance(new_name, str) and 2 <= len(new_name) <= 16:
+           self._name = new_name
+
 
     @property
     def category(self):
@@ -42,8 +43,9 @@ class Magazine:
 
     @category.setter
     def category(self, new_category):
-        if len(new_category) > 0:
+        if isinstance(new_category, str) and len(new_category) > 0:
             self._category = new_category
+
 
     def articles(self):
         return [article for article in Article.all if article.magazine == self]
